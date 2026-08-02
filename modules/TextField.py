@@ -1,5 +1,6 @@
 import wx
 from .TextField_style import apply_style
+from .TextField_placeholder import Placeholder
 
 
 class TextField(wx.Panel):
@@ -14,3 +15,5 @@ class TextField(wx.Panel):
 
         sizer.Add(self.text, 1, wx.ALL | wx.EXPAND, 10)
         self.SetSizer(sizer)
+
+        Placeholder(self.text, "Write something...")
