@@ -1,6 +1,7 @@
 import wx
 from .TextField_style import apply_style
 from .TextField_placeholder import Placeholder
+from .TextField_SubmitButton import create_submit_button
 
 
 class TextField(wx.Panel):
@@ -9,10 +10,13 @@ class TextField(wx.Panel):
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
-        self.text = wx.TextCtrl(self, style=wx.TE_MULTILINE)
+        self.text_field = wx.TextCtrl(self, style=wx.TE_MULTILINE)
 
-        Placeholder(self.text, "Write something...")
-        apply_style(self.text)
+        Placeholder(self.text_field, "Write something...")
+        apply_style(self.text_field)
 
-        sizer.Add(self.text, 1, wx.ALL | wx.EXPAND, 10)
+        self.submit_button = create_submit_button(self, self.text_field)
+
+        sizer.Add(self.text_field, 1, wx.ALL | wx.EXPAND, 10)
+        sizer.Add(self.submit_button, 0, wx.ALL, 10)
         self.SetSizer(sizer)
