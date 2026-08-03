@@ -11,9 +11,8 @@ class TextField(wx.Panel):
 
         self.text = wx.TextCtrl(self, style=wx.TE_MULTILINE)
 
+        Placeholder(self.text, "Write something...")
         apply_style(self.text)
 
         sizer.Add(self.text, 1, wx.ALL | wx.EXPAND, 10)
         self.SetSizer(sizer)
-
-        Placeholder(self.text, "Write something...")

@@ -1,4 +1,5 @@
 import wx
+from modules.TextField_placeholderStyle import apply_style
 
 
 class Placeholder:
@@ -8,10 +9,10 @@ class Placeholder:
 
         self.label = wx.StaticText(textctrl.GetParent(), label=text)
 
-        self.label.SetForegroundColour(wx.Colour(120, 120, 120))
+        apply_style(self.label)
 
         x, y = textctrl.GetPosition()
-        self.label.SetPosition((x + 8, y + 8))
+        self.label.SetPosition((x + 18, y + 12))  # 8
 
         textctrl.Bind(wx.EVT_TEXT, self.update)
         self.label.Bind(wx.EVT_LEFT_DOWN, self.focus)
