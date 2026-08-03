@@ -1,5 +1,7 @@
 import wx
 
+from modules.StoreText import StoreText
+
 
 def create_submit_button(panel, text_field):
     button = wx.Button(panel, label="Submit")
@@ -11,5 +13,4 @@ def create_submit_button(panel, text_field):
 
 def on_submit(event, text_field):
     user_text = text_field.GetValue()
-
-    print("User entered:", user_text)
+    StoreText(user_text)
