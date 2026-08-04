@@ -16,6 +16,9 @@ def on_submit(event, text_field, panel):
 
     user_text = text_field.GetValue()
 
+    if not user_text.strip():
+        return
+
     button.Destroy()
     text_field.Destroy()
 

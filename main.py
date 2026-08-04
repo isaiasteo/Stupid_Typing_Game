@@ -1,7 +1,7 @@
 import os
 import wx
 
-from modules.TextField import TextField
+from modules.TextField.TextField import TextField
 
 os.system("cls")
 
