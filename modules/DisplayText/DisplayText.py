@@ -12,6 +12,4 @@ class DisplayText(wx.Panel):
 
         self.label = wx.StaticText(self, label=data)
 
-        # style...
-
         sizer.Add(self.label, 1, wx.ALL | wx.CENTER, 20)
