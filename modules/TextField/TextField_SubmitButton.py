@@ -1,7 +1,5 @@
 import wx
 
-import wx
-
 
 def create_submit_button(panel, text_field, next_screen):
     button = wx.Button(panel, label="Submit")
