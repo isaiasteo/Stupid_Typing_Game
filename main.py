@@ -1,21 +1,19 @@
 import os
 import wx
 
-from modules.TextField.TextField import TextField
+from modules.window import create_window
+from modules.screens import SCREENS
+from modules.screen_manager import ScreenManager
 
 os.system("cls")
 
 app = wx.App()
 
-window = wx.Frame(None, title="Stupid Typing Game", size=(800, 600))
+window = create_window()
 
-panel = TextField(window)
+manager = ScreenManager(window, SCREENS)
 
-
-sizer = wx.BoxSizer(wx.VERTICAL)
-sizer.Add(panel, 1, wx.EXPAND)
-window.SetSizer(sizer)
-window.SetBackgroundColour(wx.BLACK)
+manager.next_screen()
 
 window.Show()
 

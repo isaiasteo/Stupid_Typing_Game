@@ -5,8 +5,10 @@ from .TextField_SubmitButton import create_submit_button
 
 
 class TextField(wx.Panel):
-    def __init__(self, parent):
+    def __init__(self, parent, data, next_screen):
         super().__init__(parent)
+
+        self.next_screen = next_screen
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
@@ -16,10 +18,14 @@ class TextField(wx.Panel):
             self.text_field,
             "Welcome. \n This game will test your typing skills. \n To start, type or paste a text, then press [Submit] \n Your job is to perfectly type was was submited. \n \n Good luck!",
         )
+
         apply_style(self.text_field)
 
-        self.submit_button = create_submit_button(self, self.text_field)
+        self.submit_button = create_submit_button(
+            self, self.text_field, self.next_screen
+        )
 
         sizer.Add(self.text_field, 1, wx.ALL | wx.EXPAND, 10)
         sizer.Add(self.submit_button, 0, wx.ALL, 10)
+
         self.SetSizer(sizer)
