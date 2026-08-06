@@ -1,7 +1,5 @@
 import wx
 
-import wx
-
 
 class DisplayText(wx.Panel):
     def __init__(self, parent, data, next_screen):
@@ -21,4 +19,8 @@ class DisplayText(wx.Panel):
         font.SetPointSize(14)
         self.label.SetFont(font)
 
-        sizer.Add(self.label, 1, wx.ALL | wx.CENTER, 20)
+        sizer.Add(self.label, 0, wx.ALL | wx.CENTER, 20)
+
+        self.label.Wrap(650)
+
+        self.Layout()
