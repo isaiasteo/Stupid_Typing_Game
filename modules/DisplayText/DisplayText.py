@@ -1,4 +1,7 @@
 import wx
+import time
+
+from modules.SFX.sound_effects import sfx
 
 
 class DisplayText(wx.Panel):
@@ -74,11 +77,15 @@ class DisplayText(wx.Panel):
 
             # Finished typing the entire text
             if self.position == len(self.target_text):
-
+                sfx("modules/DisplayText/correct.mp3")
                 print("Finished!")
 
                 self.next_screen()
 
         else:
-
+            sfx("modules/DisplayText/libby_retry.mp3")
             print(f"Wrong: {typed!r}, " f"expected {expected!r}")
+            time.sleep(1)
+
+            # Reset progress
+            self.position = 0
