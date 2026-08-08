@@ -139,7 +139,7 @@ class DisplayText(wx.Panel):
         # -----------------------------------------------------
 
         else:
-
+            sfx("modules/DisplayText/error.wav")
             sfx("modules/DisplayText/libby_retry.mp3")
 
             time.sleep(0.05)
