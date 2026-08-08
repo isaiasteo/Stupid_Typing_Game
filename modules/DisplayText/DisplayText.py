@@ -78,7 +78,7 @@ class DisplayText(wx.Panel):
         if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER):
 
             self.check_character("\n")
-            sfx("modules/DisplayText/enter.wav")
+            sfx("modules/SFX/enter.wav")
             return
 
         event.Skip()
@@ -122,13 +122,13 @@ class DisplayText(wx.Panel):
         if typed == expected:
 
             self.position += 1
-            sfx("modules/DisplayText/click.wav")
+            sfx("modules/SFX/click.wav")
 
             print(f"Correct: {typed!r}")
 
             if self.position == len(self.target_text):
 
-                sfx("modules/DisplayText/correct.mp3")
+                sfx("modules/SFX/correct.mp3")
 
                 print("Finished!")
 
@@ -139,9 +139,9 @@ class DisplayText(wx.Panel):
         # -----------------------------------------------------
 
         else:
-            sfx("modules/DisplayText/error.wav")
+            sfx("modules/SFX/error.wav")
             time.sleep(0.01)
-            sfx("modules/DisplayText/libby_retry.mp3")
+            sfx("modules/SFX/libby_retry.mp3")
 
             print(f"Wrong: {typed!r}, " f"expected {expected!r}")
 
