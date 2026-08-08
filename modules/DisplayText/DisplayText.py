@@ -78,7 +78,7 @@ class DisplayText(wx.Panel):
         if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER):
 
             self.check_character("\n")
-
+            sfx("modules/DisplayText/enter.wav")
             return
 
         event.Skip()
