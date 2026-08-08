@@ -122,6 +122,7 @@ class DisplayText(wx.Panel):
         if typed == expected:
 
             self.position += 1
+            sfx("modules/DisplayText/click.wav")
 
             print(f"Correct: {typed!r}")
 
