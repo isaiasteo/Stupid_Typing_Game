@@ -17,6 +17,8 @@ class DisplayText(wx.Panel):
 
         self.target_text = str(data).replace("\r\n", "\n").replace("\r", "\n")
 
+        self.display_text = self.target_text.replace("\n", "⏎\n")
+
         self.position = 0
 
         # =====================================================
@@ -26,8 +28,7 @@ class DisplayText(wx.Panel):
         sizer = wx.BoxSizer(wx.VERTICAL)
         self.SetSizer(sizer)
 
-        self.label = wx.StaticText(self, label=self.target_text)
-
+        self.label = wx.StaticText(self, label=self.display_text)
         self.label.SetForegroundColour(wx.WHITE)
         self.label.SetBackgroundColour(wx.BLACK)
 
