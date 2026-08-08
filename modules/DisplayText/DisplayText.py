@@ -140,9 +140,8 @@ class DisplayText(wx.Panel):
 
         else:
             sfx("modules/DisplayText/error.wav")
+            time.sleep(0.01)
             sfx("modules/DisplayText/libby_retry.mp3")
-
-            time.sleep(0.05)
 
             print(f"Wrong: {typed!r}, " f"expected {expected!r}")
 
