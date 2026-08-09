@@ -1,7 +1,7 @@
 import wx
-from .TextField_style import apply_style
-from .TextField_placeholder import Placeholder
-from .TextField_SubmitButton import create_submit_button
+from .text_field_style import apply_style
+from .text_field_placeholder import Placeholder
+from .text_field_submit_button import create_submit_button
 
 
 class TextField(wx.Panel):

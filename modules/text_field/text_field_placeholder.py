@@ -1,5 +1,5 @@
 import wx
-from modules.TextField.TextField_placeholderStyle import apply_style
+from modules.text_field.text_field_placeholder_style import apply_style
 
 
 class Placeholder:

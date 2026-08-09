@@ -1,7 +1,7 @@
 import wx
 import time
 
-from modules.SFX.sound_effects import sfx
+from modules.sfx.sound_effects import sfx
 
 
 class DisplayText(wx.Panel):
