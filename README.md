@@ -2,5 +2,6 @@ It comes from a user pasted chunk of text. User copies something, pastes it to t
 
 That's it. This is the whole thing. Pretty simple.
 
+# Python version 3.13
 # pip install wx
 # pip install pygame
