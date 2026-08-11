@@ -15,7 +15,7 @@ class text_glitch(wx.Panel):
         self.Bind(wx.EVT_PAINT, self._on_paint)
         self.Bind(wx.EVT_WINDOW_DESTROY, self._on_destroy)
 
-        self.duration = 500
+        self.duration = 150
         self.frame_interval = 40
         self.elapsed = 0
 
