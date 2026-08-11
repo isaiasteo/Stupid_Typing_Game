@@ -1,17 +1,15 @@
 import wx
-import time
 
 from modules.sfx.sound_effects import sfx
+from .layout import setup_layout
+from .keyboard import setup_keyboard
+from .typing import check_character
 
 
 class display_text(wx.Panel):
 
     def __init__(self, parent, data, next_screen):
         super().__init__(parent)
-
-        # =====================================================
-        # State
-        # =====================================================
 
         self.next_screen = next_screen
 
@@ -21,74 +19,22 @@ class display_text(wx.Panel):
 
         self.position = 0
 
-        # =====================================================
-        # Layout
-        # =====================================================
+        setup_layout(self)
+        setup_keyboard(self)
 
-        sizer = wx.BoxSizer(wx.VERTICAL)
-        self.SetSizer(sizer)
-
-        self.label = wx.StaticText(self, label=self.display_text)
-        self.label.SetForegroundColour(wx.WHITE)
-        self.label.SetBackgroundColour(wx.BLACK)
-
-        font = self.label.GetFont()
-        font.SetPointSize(14)
-        self.label.SetFont(font)
-
-        self.label.Wrap(650)
-
-        sizer.Add(self.label, 0, wx.ALL | wx.CENTER, 20)
-
-        # =====================================================
-        # Hidden keyboard input
-        # =====================================================
-
-        self.input = wx.TextCtrl(self, style=wx.TE_PROCESS_TAB)
-
-        self.input.SetSize((1, 1))
-        self.input.SetPosition((-10, -10))
-
-        # -----------------------------------------------------
-        # Character events
-        # -----------------------------------------------------
-
-        self.input.Bind(wx.EVT_CHAR, self.on_char)
-
-        # -----------------------------------------------------
-        # Key hook
-        # -----------------------------------------------------
-
-        self.input.Bind(wx.EVT_CHAR_HOOK, self.on_char_hook)
-
-        # Give focus to the TextCtrl
         self.input.SetFocus()
 
-        self.Layout()
-
-    # =========================================================
-    # KEY HOOK
-    # =========================================================
-
     def on_char_hook(self, event):
-
         key = event.GetKeyCode()
 
-        # Enter / Return
         if key in (wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER):
-
             self.check_character("\n")
             sfx("modules/SFX/enter.wav")
             return
 
         event.Skip()
 
-    # =========================================================
-    # NORMAL CHARACTERS
-    # =========================================================
-
     def on_char(self, event):
-
         unicode_key = event.GetUnicodeKey()
 
         if unicode_key == wx.WXK_NONE:
@@ -102,46 +48,17 @@ class display_text(wx.Panel):
 
         self.check_character(typed)
 
-    # =========================================================
-    # CHECK CHARACTER
-    # =========================================================
-
     def check_character(self, typed):
+        result = check_character(self.target_text, self.position, typed)
 
-        print(f"typed = {typed!r}")
+        self.position = result.position
 
-        if self.position >= len(self.target_text):
-            return
-
-        expected = self.target_text[self.position]
-
-        # -----------------------------------------------------
-        # Correct
-        # -----------------------------------------------------
-
-        if typed == expected:
-
-            self.position += 1
+        if result.correct:
             sfx("modules/SFX/click.wav")
-
-            print(f"Correct: {typed!r}")
-
-            if self.position == len(self.target_text):
-
-                sfx("modules/SFX/correct.mp3")
-                self.position = 0
-                print("Finished!")
-
-                self.next_screen()
-
-        # -----------------------------------------------------
-        # Wrong
-        # -----------------------------------------------------
 
         else:
             sfx("modules/SFX/error.wav")
-            time.sleep(0.01)
 
-            print(f"Wrong: {typed!r}, " f"expected {expected!r}")
-
-            self.position = 0
+        if result.finished:
+            sfx("modules/SFX/correct.mp3")
+            self.next_screen()
