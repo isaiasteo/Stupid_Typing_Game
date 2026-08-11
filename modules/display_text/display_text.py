@@ -5,6 +5,7 @@ from .layout import setup_layout
 from .keyboard import setup_keyboard
 from .typing import check_character
 from .text_glitch import text_glitch
+from .cronometer import cronometer
 
 
 class display_text(wx.Panel):
@@ -19,6 +20,8 @@ class display_text(wx.Panel):
         self.display_text = self.target_text.replace("\n", "⏎\n")
 
         self.position = 0
+
+        self.cronometer = cronometer(self)
 
         setup_layout(self)
         setup_keyboard(self)
@@ -52,6 +55,8 @@ class display_text(wx.Panel):
         self.check_character(typed)
 
     def check_character(self, typed):
+        self.cronometer.start()
+
         result = check_character(self.target_text, self.position, typed)
 
         self.position = result.position
@@ -64,5 +69,6 @@ class display_text(wx.Panel):
             self.glitch.start()
 
         if result.finished:
+            self.cronometer.stop()
             sfx("modules/SFX/correct.mp3")
             self.next_screen()
