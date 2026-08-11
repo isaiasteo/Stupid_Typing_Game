@@ -4,6 +4,7 @@ from modules.sfx.sound_effects import sfx
 from .layout import setup_layout
 from .keyboard import setup_keyboard
 from .typing import check_character
+from .text_glitch import text_glitch
 
 
 class display_text(wx.Panel):
@@ -21,6 +22,8 @@ class display_text(wx.Panel):
 
         setup_layout(self)
         setup_keyboard(self)
+
+        self.glitch = text_glitch(self)
 
         self.input.SetFocus()
 
@@ -58,6 +61,7 @@ class display_text(wx.Panel):
 
         else:
             sfx("modules/SFX/error.wav")
+            self.glitch.start()
 
         if result.finished:
             sfx("modules/SFX/correct.mp3")
