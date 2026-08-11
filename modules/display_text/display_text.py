@@ -4,7 +4,7 @@ import time
 from modules.sfx.sound_effects import sfx
 
 
-class DisplayText(wx.Panel):
+class display_text(wx.Panel):
 
     def __init__(self, parent, data, next_screen):
         super().__init__(parent)
@@ -129,7 +129,7 @@ class DisplayText(wx.Panel):
             if self.position == len(self.target_text):
 
                 sfx("modules/SFX/correct.mp3")
-
+                self.position = 0
                 print("Finished!")
 
                 self.next_screen()
@@ -141,7 +141,6 @@ class DisplayText(wx.Panel):
         else:
             sfx("modules/SFX/error.wav")
             time.sleep(0.01)
-            sfx("modules/SFX/libby_retry.mp3")
 
             print(f"Wrong: {typed!r}, " f"expected {expected!r}")
 

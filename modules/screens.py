@@ -1,7 +1,7 @@
-from modules.text_field.text_field import TextField
-from modules.display_text.display_text import DisplayText
+from modules.text_field.text_field import text_field
+from modules.display_text.display_text import display_text
 
 SCREENS = [
-    TextField,
-    DisplayText,
+    text_field,
+    display_text,
 ]

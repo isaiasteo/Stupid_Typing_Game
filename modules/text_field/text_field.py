@@ -1,10 +1,10 @@
 import wx
 from .text_field_style import apply_style
-from .text_field_placeholder import Placeholder
+from .text_field_placeholder import placeholder
 from .text_field_submit_button import create_submit_button
 
 
-class TextField(wx.Panel):
+class text_field(wx.Panel):
     def __init__(self, parent, data, next_screen):
         super().__init__(parent)
 
@@ -14,7 +14,7 @@ class TextField(wx.Panel):
 
         self.text_field = wx.TextCtrl(self, style=wx.TE_MULTILINE)
 
-        Placeholder(
+        placeholder(
             self.text_field,
             "Welcome. \n This game will test your typing skills. \n To start, type or paste a text, then press [Submit] \n Your job is to perfectly type was was submited. \n \n Good luck!",
         )

@@ -1,7 +1,7 @@
 import wx
 
 
-class ScreenManager:
+class screen_manager:
     def __init__(self, window, screens):
         self.window = window
         self.screens = screens

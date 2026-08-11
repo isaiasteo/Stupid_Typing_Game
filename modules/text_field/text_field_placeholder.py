@@ -2,7 +2,7 @@ import wx
 from modules.text_field.text_field_placeholder_style import apply_style
 
 
-class Placeholder:
+class placeholder:
 
     def __init__(self, textctrl, text):
         self.textctrl = textctrl
