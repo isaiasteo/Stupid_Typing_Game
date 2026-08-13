@@ -2,18 +2,7 @@ import wx
 import wx.richtext
 
 
-def paint_progress(text_control, position, color):
-    style = wx.TextAttr()
-    style.SetTextColour(color)
-
-    text_control.SetStyle(
-        wx.richtext.RichTextRange(0, position),
-        style,
-    )
-
-
 def paint_progress(text_control, position):
-
     style = wx.TextAttr()
     style.SetTextColour(wx.Colour(255, 105, 180))
 
