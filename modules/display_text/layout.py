@@ -1,4 +1,5 @@
 import wx
+import wx.richtext
 
 
 def setup_layout(panel):
@@ -6,17 +7,23 @@ def setup_layout(panel):
     sizer = wx.BoxSizer(wx.VERTICAL)
     panel.SetSizer(sizer)
 
-    panel.label = wx.StaticText(panel, label=panel.display_text)
+    panel.label = wx.richtext.RichTextCtrl(panel, style=wx.richtext.RE_READONLY)
 
-    panel.label.SetForegroundColour(wx.WHITE)
     panel.label.SetBackgroundColour(wx.BLACK)
+    panel.label.SetForegroundColour(wx.WHITE)
 
     font = panel.label.GetFont()
     font.SetPointSize(14)
     panel.label.SetFont(font)
 
-    panel.label.Wrap(650)
+    panel.label.WriteText(panel.display_text)
 
-    sizer.Add(panel.label, 0, wx.ALL | wx.CENTER, 20)
+    panel.label.SetStyle(
+        0,
+        len(panel.display_text),
+        wx.TextAttr(colText=wx.WHITE),
+    )
+
+    sizer.Add(panel.label, 1, wx.ALL | wx.EXPAND, 20)
 
     panel.Layout()

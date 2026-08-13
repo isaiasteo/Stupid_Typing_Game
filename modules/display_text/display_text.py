@@ -6,6 +6,7 @@ from .keyboard import setup_keyboard
 from .typing import check_character
 from .text_glitch import text_glitch
 from .cronometer import cronometer
+from .coloring import paint_progress, reset_color
 
 
 class display_text(wx.Panel):
@@ -55,20 +56,30 @@ class display_text(wx.Panel):
         self.check_character(typed)
 
     def check_character(self, typed):
+
         self.cronometer.start()
 
         result = check_character(self.target_text, self.position, typed)
 
-        self.position = result.position
-
         if result.correct:
+
             sfx("modules/SFX/click.wav")
+            paint_progress(self.label, result.position)
 
         else:
+
             sfx("modules/SFX/error.wav")
+
             self.glitch.start()
 
+            reset_color(self.label, len(self.target_text))
+
+        self.position = result.position
+
         if result.finished:
+
             self.cronometer.stop()
+
             sfx("modules/SFX/correct.mp3")
+
             self.next_screen()
