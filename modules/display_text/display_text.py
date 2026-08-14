@@ -27,6 +27,8 @@ class display_text(wx.Panel):
         setup_layout(self)
         setup_keyboard(self)
 
+        self.label.Bind(wx.EVT_LEFT_DOWN, lambda event: self.input.SetFocus())
+
         self.glitch = text_glitch(self)
 
         self.input.SetFocus()

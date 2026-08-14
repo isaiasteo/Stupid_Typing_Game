@@ -9,6 +9,15 @@ def setup_layout(panel):
 
     panel.label = wx.richtext.RichTextCtrl(panel, style=wx.richtext.RE_READONLY)
 
+    panel.label.SetCanFocus(False)
+    panel.label.Enable(False)
+    panel.label.Bind(wx.EVT_LEFT_DOWN, lambda event: None)
+    panel.label.Bind(wx.EVT_LEFT_UP, lambda event: None)
+    panel.label.Bind(wx.EVT_RIGHT_DOWN, lambda event: None)
+    panel.label.Bind(wx.EVT_RIGHT_UP, lambda event: None)
+    panel.label.Bind(wx.EVT_MOTION, lambda event: None)
+
+    panel.label.SetCanFocus(False)
     panel.label.SetBackgroundColour(wx.BLACK)
     panel.label.SetForegroundColour(wx.WHITE)
 
