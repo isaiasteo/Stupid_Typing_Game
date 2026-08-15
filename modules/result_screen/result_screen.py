@@ -3,10 +3,6 @@ import wx
 from modules.components.create_button import create_button
 
 
-def restart(event):
-    print("Restart pressed, nothing happened.")
-
-
 def record(event):
     print("Submit pressed, nothing happened.")
 
@@ -25,7 +21,11 @@ class ResultScreen(wx.Panel):
         self.result_text.SetFont(font)
 
         btn_restart = create_button(
-            self, "Restart", restart, position=(250, 200), size=(120, 40)
+            self,
+            "Restart",
+            lambda event: self.next_screen(index=0),
+            position=(250, 200),
+            size=(120, 40),
         )
         btn_save_record = create_button(
             self, "Save Record", record, position=(450, 200), size=(120, 40)

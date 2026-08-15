@@ -12,7 +12,10 @@ class screen_manager:
         self.sizer = wx.BoxSizer(wx.VERTICAL)
         self.window.SetSizer(self.sizer)
 
-    def next_screen(self, data=None):
+    def next_screen(self, data=None, index=None):
+        if index is not None:
+            self.index = index
+
         if self.index >= len(self.screens):
             return
 
@@ -30,3 +33,7 @@ class screen_manager:
         self.window.Layout()
 
         self.index += 1
+
+    def restart(self):
+        self.index = 0
+        self.next_screen()
