@@ -16,7 +16,6 @@ def setup_layout(panel):
     panel.label.Bind(wx.EVT_RIGHT_DOWN, lambda event: None)
     panel.label.Bind(wx.EVT_RIGHT_UP, lambda event: None)
     panel.label.Bind(wx.EVT_MOTION, lambda event: None)
-
     panel.label.SetCanFocus(False)
     panel.label.SetBackgroundColour(wx.BLACK)
     panel.label.SetForegroundColour(wx.WHITE)
