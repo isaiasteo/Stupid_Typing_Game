@@ -84,4 +84,4 @@ class display_text(wx.Panel):
 
             sfx("modules/SFX/correct.mp3")
 
-            self.next_screen(result)
+            self.next_screen({"text": self.target_text, "time": result})
