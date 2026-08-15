@@ -80,8 +80,8 @@ class display_text(wx.Panel):
 
         if result.finished:
 
-            self.cronometer.stop()
+            result = self.cronometer.stop()
 
             sfx("modules/SFX/correct.mp3")
 
-            self.next_screen()
+            self.next_screen(result)

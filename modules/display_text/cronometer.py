@@ -3,7 +3,6 @@ import wx
 
 
 class cronometer:
-
     def __init__(self, parent):
         self.parent = parent
 
@@ -18,6 +17,7 @@ class cronometer:
 
         self.start_time = None
         self.finished = False
+        self.result = "00:00.000"
 
         self.timer = wx.Timer(parent)
         parent.Bind(wx.EVT_TIMER, self._update, self.timer)
@@ -52,12 +52,16 @@ class cronometer:
 
     def stop(self):
         if self.start_time is None or self.finished:
-            return
+            return None
 
         self._update(None)
 
         self.finished = True
         self.timer.Stop()
+
+        self.result = self.display.GetLabel()
+
+        return self.result
 
     def _update(self, event):
         if self.start_time is None:
