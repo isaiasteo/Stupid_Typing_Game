@@ -23,18 +23,11 @@ class ResultScreen(wx.Panel):
             position=(330, 200),
             size=(120, 40),
         )
-        btn_save_record = create_button(
-            self,
-            "Save Record",
-            lambda event: print("You pressed record, nothing happened. :("),
-            position=(330, 300),
-            size=(120, 40),
-        )
         btn_retype = create_button(
             self,
             "Retype",
             lambda event: self.next_screen(index=1, data=self.data["text"]),
-            position=(330, 400),
+            position=(330, 300),
             size=(120, 40),
         )
 
