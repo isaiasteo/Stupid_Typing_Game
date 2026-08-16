@@ -23,6 +23,7 @@ class ResultScreen(wx.Panel):
             position=(330, 200),
             size=(120, 40),
         )
+        btn_retype.SetFocus()
         btn_restart = create_button(
             self,
             "Restart",
