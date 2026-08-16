@@ -16,17 +16,17 @@ class ResultScreen(wx.Panel):
         font.SetPointSize(14)
         self.result_text.SetFont(font)
 
-        btn_restart = create_button(
-            self,
-            "Restart",
-            lambda event: self.next_screen(index=0),
-            position=(330, 200),
-            size=(120, 40),
-        )
         btn_retype = create_button(
             self,
             "Retype",
             lambda event: self.next_screen(index=1, data=self.data["text"]),
+            position=(330, 200),
+            size=(120, 40),
+        )
+        btn_restart = create_button(
+            self,
+            "Restart",
+            lambda event: self.next_screen(index=0),
             position=(330, 300),
             size=(120, 40),
         )
