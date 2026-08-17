@@ -16,6 +16,7 @@ class placeholder:
 
         textctrl.Bind(wx.EVT_TEXT, self.update)
         self.label.Bind(wx.EVT_LEFT_DOWN, self.focus)
+        textctrl.SetFocus()
 
         self.update(None)
 

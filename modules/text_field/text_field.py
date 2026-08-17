@@ -16,7 +16,7 @@ class text_field(wx.Panel):
 
         placeholder(
             self.text_field,
-            "Welcome. \n This game will test your typing skills. \n To start, type or paste a text, then press [Submit] \n Your job is to perfectly type was was submited. \n \n Good luck!",
+            "Welcome. \n This game will test your typing skills. \n To start, type or paste a text, then press [Submit] \n Your job is to perfectly type what was submited. \n \n Good luck!",
         )
 
         apply_style(self.text_field)
