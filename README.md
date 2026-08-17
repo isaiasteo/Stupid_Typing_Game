@@ -6,4 +6,4 @@ That's it. This is the whole thing. Pretty simple.
 # pip install wx
 # pip install pygame
 
-![Gameplay](modules/screenshots/screenshot_1.png)
+![Screenshot](modules/images/screenshots/screenshot_1.png)
