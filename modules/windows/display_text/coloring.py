@@ -2,8 +2,12 @@ import wx
 import wx.richtext
 
 
-def paint_progress(text_control, position):
-    reset_color(text_control, text_control.GetValue().__len__())
+def paint_progress(text_control, position, mode="easy"):
+    reset_color(
+        text_control,
+        len(text_control.GetValue()),
+        mode,
+    )
 
     style = wx.TextAttr()
     style.SetTextColour(wx.Colour(255, 105, 180))
@@ -29,9 +33,13 @@ def paint_progress(text_control, position):
     )
 
 
-def reset_color(text_control, text_length):
+def reset_color(text_control, text_length, mode="easy"):
     style = wx.TextAttr()
-    style.SetTextColour(wx.WHITE)
+
+    if mode == "hard":
+        style.SetTextColour(wx.BLACK)
+    else:
+        style.SetTextColour(wx.WHITE)
 
     text_control.SetStyle(
         wx.richtext.RichTextRange(0, text_length),

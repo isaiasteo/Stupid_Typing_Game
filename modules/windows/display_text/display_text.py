@@ -26,6 +26,7 @@ class display_text(wx.Panel):
         self.cronometer = cronometer(self)
 
         setup_layout(self)
+
         setup_keyboard(self)
 
         self.label.Bind(wx.EVT_LEFT_DOWN, lambda event: self.input.SetFocus())
@@ -68,8 +69,8 @@ class display_text(wx.Panel):
 
             sfx("modules/SFX/click.wav")
 
-            if self.mode == "easy":
-                paint_progress(self.label, result.position)
+            if self.mode in ("easy", "hard"):
+                paint_progress(self.label, result.position, self.mode)
 
         else:
 
@@ -77,8 +78,12 @@ class display_text(wx.Panel):
 
             self.glitch.start()
 
-            if self.mode == "easy":
-                reset_color(self.label, len(self.target_text))
+            if self.mode in ("easy", "hard"):
+                reset_color(
+                    self.label,
+                    len(self.display_text),
+                    self.mode,
+                )
 
         self.position = result.position
 
