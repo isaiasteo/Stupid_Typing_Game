@@ -12,6 +12,7 @@ class ResultScreen(wx.Panel):
 
         self.result_text = wx.StaticText(self, label=str(self.data["time"]))
         self.result_text.SetForegroundColour(wx.WHITE)
+
         font = self.result_text.GetFont()
         font.SetPointSize(14)
         self.result_text.SetFont(font)
@@ -19,21 +20,28 @@ class ResultScreen(wx.Panel):
         btn_retype = create_button(
             self,
             "Retype",
-            lambda event: self.next_screen(index=1, data=self.data["text"]),
+            lambda event: self.next_screen(
+                index=1,
+                data={
+                    "text": self.data["text"],
+                    "mode": self.data["mode"],
+                },
+            ),
             position=(330, 200),
             size=(120, 40),
         )
+
         btn_retype.SetFocus()
-        btn_restart = create_button(
+
+        btn_main_menu = create_button(
             self,
-            "Restart",
-            lambda event: self.next_screen(index=0),
+            "Main Menu",
+            lambda event: self.next_screen(index=3),
             position=(330, 300),
             size=(120, 40),
         )
 
         sizer = wx.BoxSizer(wx.VERTICAL)
-
         sizer.Add(self.result_text, 0, wx.ALL | wx.CENTER, 10)
 
         self.SetSizer(sizer)

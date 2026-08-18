@@ -16,7 +16,8 @@ class display_text(wx.Panel):
 
         self.next_screen = next_screen
 
-        self.target_text = str(data).replace("\r\n", "\n").replace("\r", "\n")
+        self.mode = data.get("mode", "easy")
+        self.target_text = str(data["text"]).replace("\r\n", "\n").replace("\r", "\n")
 
         self.display_text = self.target_text.replace("\n", "⏎\n")
 
@@ -66,7 +67,9 @@ class display_text(wx.Panel):
         if result.correct:
 
             sfx("modules/SFX/click.wav")
-            paint_progress(self.label, result.position)
+
+            if self.mode == "easy":
+                paint_progress(self.label, result.position)
 
         else:
 
@@ -74,7 +77,8 @@ class display_text(wx.Panel):
 
             self.glitch.start()
 
-            reset_color(self.label, len(self.target_text))
+            if self.mode == "easy":
+                reset_color(self.label, len(self.target_text))
 
         self.position = result.position
 
@@ -84,4 +88,11 @@ class display_text(wx.Panel):
 
             sfx("modules/SFX/correct.mp3")
 
-            self.next_screen({"text": self.target_text, "time": result})
+            self.next_screen(
+                index=2,
+                data={
+                    "text": self.target_text,
+                    "time": result,
+                    "mode": self.mode,
+                },
+            )

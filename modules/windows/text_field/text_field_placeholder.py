@@ -12,7 +12,7 @@ class placeholder:
         apply_style(self.label)
 
         x, y = textctrl.GetPosition()
-        self.label.SetPosition((x + 18, y + 12))  # 8
+        self.label.SetPosition((x + 18, y + 12))
 
         textctrl.Bind(wx.EVT_TEXT, self.update)
         self.label.Bind(wx.EVT_LEFT_DOWN, self.focus)

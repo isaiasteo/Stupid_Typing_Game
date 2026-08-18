@@ -8,6 +8,8 @@ class text_field(wx.Panel):
     def __init__(self, parent, data, next_screen):
         super().__init__(parent)
 
+        self.data = data if data is not None else {}
+
         self.next_screen = next_screen
 
         sizer = wx.BoxSizer(wx.VERTICAL)
@@ -22,7 +24,7 @@ class text_field(wx.Panel):
         apply_style(self.text_field)
 
         self.submit_button = create_submit_button(
-            self, self.text_field, self.next_screen
+            self, self.text_field, self.data, self.next_screen
         )
 
         sizer.Add(self.text_field, 1, wx.ALL | wx.EXPAND, 10)

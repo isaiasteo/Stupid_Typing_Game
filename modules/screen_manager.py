@@ -6,7 +6,7 @@ class screen_manager:
         self.window = window
         self.screens = screens
 
-        self.index = 3
+        self.index = 3  # 3 main menu
         self.current_panel = None
 
         self.sizer = wx.BoxSizer(wx.VERTICAL)
