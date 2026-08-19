@@ -6,4 +6,6 @@ def create_window():
 
     window.SetBackgroundColour(wx.BLACK)
 
+    window.Centre()
+
     return window
