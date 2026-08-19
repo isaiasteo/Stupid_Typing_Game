@@ -89,6 +89,7 @@ class ModeSelect(wx.Panel):
             self.cards_sizer,
             self.continue_button,
             self.result_text,
+            self.scroll,
         )
 
     def on_continue(self, event):
