@@ -17,23 +17,23 @@ class MainMenu(wx.Panel):
         )
         self.result_text.SetForegroundColour(wx.WHITE)
         font = self.result_text.GetFont()
-        font.SetPointSize(14)
+        font.SetPointSize(30)
         self.result_text.SetFont(font)
 
         btn_start = create_button(
             self,
             "Start game",
             lambda event: self.next_screen(index=0),
-            position=(330, 200),
-            size=(120, 40),
+            position=(320, 200),
+            size=(150, 40),
         )
         btn_start.SetFocus()
         btn_exit = create_button(
             self,
             "Exit",
             lambda event: sys.exit(),
-            position=(330, 300),
-            size=(120, 40),
+            position=(320, 250),
+            size=(150, 40),
         )
 
         sizer = wx.BoxSizer(wx.VERTICAL)
