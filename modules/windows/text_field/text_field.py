@@ -1,7 +1,9 @@
 import wx
+
 from .text_field_style import apply_style
 from .text_field_placeholder import placeholder
 from .text_field_submit_button import create_submit_button
+from .text_field_filter import TextFilter
 
 
 class text_field(wx.Panel):
@@ -9,12 +11,16 @@ class text_field(wx.Panel):
         super().__init__(parent)
 
         self.data = data if data is not None else {}
-
         self.next_screen = next_screen
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
-        self.text_field = wx.TextCtrl(self, style=wx.TE_MULTILINE)
+        self.text_field = wx.TextCtrl(
+            self,
+            style=wx.TE_MULTILINE,
+        )
+
+        TextFilter(self.text_field)
 
         placeholder(
             self.text_field,
@@ -24,7 +30,10 @@ class text_field(wx.Panel):
         apply_style(self.text_field)
 
         self.submit_button = create_submit_button(
-            self, self.text_field, self.data, self.next_screen
+            self,
+            self.text_field,
+            self.data,
+            self.next_screen,
         )
 
         sizer.Add(self.text_field, 1, wx.ALL | wx.EXPAND, 10)
