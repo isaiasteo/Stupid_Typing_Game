@@ -10,7 +10,7 @@ def paint_progress(text_control, position, mode="easy"):
     )
 
     style = wx.TextAttr()
-    style.SetTextColour(wx.Colour(255, 105, 180))
+    style.SetTextColour(wx.Colour(57, 255, 20))
 
     text = text_control.GetValue()
 
