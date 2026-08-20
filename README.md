@@ -8,10 +8,12 @@
 It starts with some text pasted into the clipboard.
 The user copies something, pastes it into **Stupid Typing Game**, and then has one job:
 > **Type the entire thing perfectly.**
+
 There is no time limit.
 There is, however, a counter, because apparently suffering needs to be measured.
 Once the entire text has been entered correctly, the game displays a very simple result:
 > **X seconds**
+
 And a couple of buttons.
 That's it.
 No celebration. No fireworks. You typed some text. It took X seconds.
@@ -23,6 +25,7 @@ Congratulations.
 For every character typed, the game checks whether the correct character was entered.
 For example, if the text says:
 > *"An apple a day keeps the doctor away."*
+
 and the user types `A`, the game checks whether `A` is the expected character.
 Then it checks the next one.
 And the next one...
@@ -46,6 +49,7 @@ One wrong character means the entire attempt is discarded.
 
 The objective is therefore extremely simple:
 > **Type the entire pasted text correctly without making a single mistake.**
+
 That's it.
 This is the whole thing.
 Pretty simple.
