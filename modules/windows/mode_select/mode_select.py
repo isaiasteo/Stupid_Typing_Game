@@ -2,6 +2,7 @@ import wx
 
 from modules.windows.mode_select.create_mode_card import create_mode_card
 from modules.windows.mode_select.select_mode import select_mode
+from modules.sfx.sound_effects import sfx
 
 
 class ModeSelect(wx.Panel):
@@ -91,6 +92,19 @@ class ModeSelect(wx.Panel):
             self.result_text,
             self.scroll,
         )
+
+        self.update_mode_music(self.selected_mode)
+
+    def update_mode_music(self, mode):
+        if mode == "easy":
+            sfx("modules/sfx/songs/Easy_Card_Clair_de_Lune.mp3")
+            pass
+        elif mode == "normal":
+            sfx("modules/sfx/songs/Normal_Card_Für_Elise.mp3")
+            pass
+        elif mode == "hard":
+            sfx("modules/sfx/songs/Hard_Card_Fur_Elise.mp3")
+            pass
 
     def on_continue(self, event):
         if self.selected_mode is not None:

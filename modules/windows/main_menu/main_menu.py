@@ -13,7 +13,7 @@ class MainMenu(wx.Panel):
 
         self.result_text = wx.StaticText(
             self,
-            label=str("STUPID TYPING GAME >:("),
+            label=str("STUPID TYPING GAME"),
         )
         self.result_text.SetForegroundColour(wx.WHITE)
         font = self.result_text.GetFont()

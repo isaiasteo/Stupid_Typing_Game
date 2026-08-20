@@ -67,14 +67,14 @@ class display_text(wx.Panel):
 
         if result.correct:
 
-            sfx("modules/SFX/click.wav")
+            sfx("modules/sfx/click.wav")
 
             if self.mode in ("easy", "hard"):
                 paint_progress(self.label, result.position, self.mode)
 
         else:
 
-            sfx("modules/SFX/error.wav")
+            sfx("modules/sfx/error.wav")
 
             self.glitch.start()
 
@@ -91,7 +91,7 @@ class display_text(wx.Panel):
 
             result = self.cronometer.stop()
 
-            sfx("modules/SFX/correct.mp3")
+            sfx("modules/sfx/correct.mp3")
 
             self.next_screen(
                 index=2,
