@@ -1,7 +1,6 @@
 # Stupid Typing Game
 
-**A deliberately stupid typing game.**
-
+![Screenshot](modules/images/screenshot_2.png)
 ![Screenshot](modules/images/screenshot_1.png)
 
 ## What is this?
