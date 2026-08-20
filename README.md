@@ -1,7 +1,7 @@
 # Stupid Typing Game
 
-![Screenshot](modules/images/screenshot_2.png)
-![Screenshot](modules/images/screenshot_1.png)
+<img src="modules/images/screenshot_2.png" width="400">
+<img src="modules/images/screenshot_1.png" width="400">
 
 ## What is this?
 
