@@ -2,12 +2,13 @@ import wx
 import sys
 
 from modules.components.create_button import create_button
+from modules.sfx.sound_effects import sfx
 
 
 class MainMenu(wx.Panel):
     def __init__(self, parent, data, next_screen):
         super().__init__(parent)
-
+        sfx("modules/sfx/songs/Main_Menu.mp3")
         self.data = data
         self.next_screen = next_screen
 
