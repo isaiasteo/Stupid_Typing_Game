@@ -1,11 +1,14 @@
 import wx
 
 from modules.components.create_button import create_button
+from modules.sfx.sound_effects import sfx
 
 
 class ResultScreen(wx.Panel):
     def __init__(self, parent, data, next_screen):
         super().__init__(parent)
+
+        sfx("modules/sfx/voiceover/congratulation.mp3")
 
         self.data = data
         self.next_screen = next_screen

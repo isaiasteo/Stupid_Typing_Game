@@ -70,6 +70,8 @@ class ModeSelect(wx.Panel):
             },
         ]
 
+        normal_mode = next(mode for mode in modes if mode["id"] == "normal")
+
         self.cards_sizer.AddStretchSpacer()
 
         for mode in modes:
@@ -93,6 +95,11 @@ class ModeSelect(wx.Panel):
 
         self.SetSizer(main_sizer)
 
+        wx.CallAfter(
+            self.handle_mode_selection,
+            normal_mode,
+        )
+
     def handle_mode_selection(self, mode):
         self.selected_mode = select_mode(
             mode,
@@ -107,7 +114,7 @@ class ModeSelect(wx.Panel):
 
     def update_mode_music(self, mode):
         if mode == "easy":
-            sfx("modules/sfx/songs/Easy_Card_Clair_de_Lune.mp3")
+            sfx("modules/sfx/songs/Easy_Card_Fur_Elise.mp3")
             pass
         elif mode == "normal":
             sfx("modules/sfx/songs/Normal_Card_Für_Elise.mp3")

@@ -1,4 +1,5 @@
 import wx
+import time
 
 from modules.sfx.sound_effects import sfx
 from .layout import setup_layout
@@ -92,6 +93,7 @@ class display_text(wx.Panel):
             result = self.cronometer.stop()
 
             sfx("modules/sfx/correct.mp3")
+            time.sleep(1)
 
             self.next_screen(
                 index=2,
