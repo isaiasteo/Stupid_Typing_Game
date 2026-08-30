@@ -42,6 +42,11 @@ class ResultScreen(wx.Panel):
         )
 
         sizer = wx.BoxSizer(wx.VERTICAL)
-        sizer.Add(self.result_text, 0, wx.ALL | wx.CENTER, 10)
+
+        sizer.AddStretchSpacer()
+        sizer.Add(self.result_text, 0, wx.ALIGN_CENTER | wx.BOTTOM, 15)
+        sizer.Add(btn_retype, 0, wx.ALIGN_CENTER | wx.BOTTOM, 10)
+        sizer.Add(btn_main_menu, 0, wx.ALIGN_CENTER)
+        sizer.AddStretchSpacer()
 
         self.SetSizer(sizer)

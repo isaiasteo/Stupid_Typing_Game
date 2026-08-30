@@ -11,14 +11,26 @@ class placeholder:
 
         apply_style(self.label)
 
-        x, y = textctrl.GetPosition()
-        self.label.SetPosition((x + 18, y + 12))
-
         textctrl.Bind(wx.EVT_TEXT, self.update)
         self.label.Bind(wx.EVT_LEFT_DOWN, self.focus)
         textctrl.SetFocus()
 
+        wx.CallAfter(self.center)
+
         self.update(None)
+
+    def center(self):
+        x, y = self.textctrl.GetPosition()
+        width, height = self.textctrl.GetSize()
+
+        label_width, label_height = self.label.GetBestSize()
+
+        self.label.SetPosition(
+            (
+                x + (width - label_width) // 2,
+                y + (height - label_height) // 2,
+            )
+        )
 
     def update(self, event):
         self.label.Show(self.textctrl.IsEmpty())

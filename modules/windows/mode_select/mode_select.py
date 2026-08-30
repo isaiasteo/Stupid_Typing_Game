@@ -34,7 +34,13 @@ class ModeSelect(wx.Panel):
         self.scroll.SetScrollRate(20, 0)
 
         self.cards_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.scroll.SetSizer(self.cards_sizer)
+
+        cards_container = wx.BoxSizer(wx.VERTICAL)
+        cards_container.AddStretchSpacer()
+        cards_container.Add(self.cards_sizer, 0, wx.ALIGN_CENTER)
+        cards_container.AddStretchSpacer()
+
+        self.scroll.SetSizer(cards_container)
 
         modes = [
             {
@@ -64,6 +70,8 @@ class ModeSelect(wx.Panel):
             },
         ]
 
+        self.cards_sizer.AddStretchSpacer()
+
         for mode in modes:
             card = create_mode_card(
                 self.scroll,
@@ -72,6 +80,8 @@ class ModeSelect(wx.Panel):
             )
 
             self.cards_sizer.Add(card, 0, wx.ALL, 10)
+
+        self.cards_sizer.AddStretchSpacer()
 
         main_sizer.Add(self.scroll, 1, wx.EXPAND | wx.LEFT | wx.RIGHT, 20)
 

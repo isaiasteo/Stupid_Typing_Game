@@ -2,10 +2,10 @@ import wx
 
 
 def create_window():
-    window = wx.Frame(None, title="Stupid Typing Game", size=(800, 600))
+    window = wx.Frame(None, title="Stupid Typing Game", style=wx.NO_BORDER)
 
     window.SetBackgroundColour(wx.BLACK)
 
-    window.Centre()
+    window.ShowFullScreen(True)
 
     return window
