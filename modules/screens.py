@@ -3,6 +3,7 @@ from modules.windows.display_text.display_text import display_text
 from modules.windows.result_screen.result_screen import ResultScreen
 from modules.windows.main_menu.main_menu import MainMenu
 from modules.windows.mode_select.mode_select import ModeSelect
+from modules.windows.intro.intro import intro
 
 SCREENS = [
     text_field,  # index 0
@@ -10,4 +11,5 @@ SCREENS = [
     ResultScreen,  # index 2
     MainMenu,  # index 3
     ModeSelect,  # index 4
+    intro,  # index 5
 ]
