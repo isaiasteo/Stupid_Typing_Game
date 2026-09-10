@@ -1,6 +1,6 @@
 # Stupid Typing Game
 
-<img src="modules/images/screenshot_2.png" width="400"> <img src="modules/images/screenshot_3.png" width="400">
+<img src="modules/images/pngs/screenshot_2.png" width="400"> <img src="modules/images/pngs/screenshot_3.png" width="400">
 
 ## What is this?
 

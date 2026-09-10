@@ -50,7 +50,7 @@ class ModeSelect(wx.Panel):
                     "Marathons starts with a single step. \n \n"
                     "*Color marks the position"
                 ),
-                "image": "modules/images/easy_mode.png",
+                "image": "modules/images/pngs/easy_mode.png",
             },
             {
                 "id": "normal",
@@ -58,7 +58,7 @@ class ModeSelect(wx.Panel):
                 "description": (
                     "The intended way to be played. \n \n" "*No visual clue to aid"
                 ),
-                "image": "modules/images/normal_mode.jpg",
+                "image": "modules/images/pngs/normal_mode.jpg",
             },
             {
                 "id": "hard",
@@ -66,7 +66,7 @@ class ModeSelect(wx.Panel):
                 "description": (
                     "Where did the text go? \n \n" "* You need to use your memory."
                 ),
-                "image": "modules/images/hard_mode.png",
+                "image": "modules/images/pngs/hard_mode.png",
             },
         ]
 

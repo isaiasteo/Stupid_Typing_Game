@@ -1,7 +1,8 @@
 import wx
 
 from modules.sfx.sound_effects import sfx
-from modules.windows.intro.pixel import PixelPanel
+from modules.images.pixel import PixelPanel
+from modules.images.pixel_arts import pixel_arts
 
 
 class intro(wx.Panel):
@@ -13,18 +14,19 @@ class intro(wx.Panel):
         self.data = data
         self.next_screen = next_screen
 
-        logo_path = "modules/images/intro_logo.png"
+        logo_path = "modules/images/pngs/intro_logo.png"
 
         image = wx.Image(logo_path, wx.BITMAP_TYPE_PNG)
         image = image.Scale(300, 300, wx.IMAGE_QUALITY_HIGH)
 
         self.logo = wx.StaticBitmap(self, bitmap=wx.Bitmap(image))
 
-        self.pixel_panel = PixelPanel(self)
+        self.pixel_panel = PixelPanel(self, pixel_arts["github"])
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
-        self.logo.SetPosition((795, 210))
+        self.logo.SetPosition((795, 200))
+
         sizer.Add(self.pixel_panel, 1, wx.EXPAND)
 
         self.SetSizer(sizer)
