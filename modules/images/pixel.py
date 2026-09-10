@@ -9,13 +9,15 @@ def draw_pixel_art(dc, size, pixel_art, fill=False):
         colors = pixel_art["colors"]
 
         scale = max(
-            width // len(art[0]),
+            width // (len(art[0]) // 2),
             height // len(art),
         )
 
         for y, row in enumerate(art):
-            for x, value in enumerate(row):
-                if value == "0":
+            for x in range(0, len(row), 2):
+                value = row[x : x + 2]
+
+                if value == "00":
                     continue
 
                 color = wx.Colour(colors[value])
@@ -24,7 +26,7 @@ def draw_pixel_art(dc, size, pixel_art, fill=False):
                 dc.SetBrush(wx.Brush(color))
 
                 dc.DrawRectangle(
-                    x * scale,
+                    (x // 2) * scale,
                     y * scale,
                     scale,
                     scale,
@@ -51,8 +53,10 @@ def draw_pixel_art(dc, size, pixel_art, fill=False):
     colors = pixel_art["colors"]
 
     for y, row in enumerate(art):
-        for x, value in enumerate(row):
-            if value == "0":
+        for x in range(0, len(row), 2):
+            value = row[x : x + 2]
+
+            if value == "00":
                 continue
 
             color = wx.Colour(colors[value])
@@ -61,7 +65,7 @@ def draw_pixel_art(dc, size, pixel_art, fill=False):
             dc.SetBrush(wx.Brush(color))
 
             dc.DrawRectangle(
-                offset_x + (x_position + x) * scale,
+                offset_x + (x_position + x // 2) * scale,
                 offset_y + (y_position + y) * scale,
                 scale,
                 scale,
